@@ -14,7 +14,83 @@ Angular
 
 s/w =>
 --------------------
-
 1. Node JS
 2. VS Code
+
+
+JavaScript:
+-----------------------------------------
+1. scripting (programming) language
+2. Object-based programming language
+3. loosely typed programming language
+4. dynamic programming language
+5. handle user interaction in web application
+
+
+html (hyper-text mark-up language)
+css (cascading style-sheet)
+javascript
+
+angular-training-codes
+		app-dir: js-basics-app
+							index.html
+
+
+			html
+head (optional)	    body
+------------------------------------
+information		design of the page
+/metadata
+
+
+real-time deployment web servers:
+-------------------------------------------
+IIS (Internet Information Services) => web server is shipped with Windows O/S
+Tomact (Aapache) => cam be installed in any machine
+NgInx => web server
+Vercel => web server
+etc.
+
+
+type of elements/tags in html:
+------------------------------
+a. block
+b. inline
+
+CSS styles:
+------------------------
+a. inline style (applying the style directly on the element)
+b. outline style (using <style> tag)
+	1. inside the HTML file
+	2. outside the HTML file (inside a separate file with extension "css") and then linking the CSS file with HTML file
+
+	i. using element selector
+	ii. using id selector
+	iii. using class selector
+
+CSS specifity => precedence of cascading effect
+browser styles > CSS file style > outline style (in style tag) > inline style
+
+Application development Server:
+---------------------------------------------
+web servers which are light-weight, without lots of features, simply to host your web app during development phase in the local machine. Theses web servers can process request coming from the same machine itself and generally hosts the web application using different port number, apart from 8080.
+
+Live Server (As a plugin of VS Code)
+Lite server 
+webpack-dev-server (Webpack)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,0 +1,30 @@
+ .center-style {
+     text-align: center;
+ }
+
+ h2 {
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+     background-color: burlywood;
+     border-radius: 5px;
+     margin: 10px;
+     height: 30px;
+ }
+
+ /* div {
+     text-align: center;
+ } */
+
+ /*button*/
+ #btnClick {
+     background-color: blueviolet;
+     border-color: blueviolet;
+     border-style: solid;
+     border-width: 1px;
+     border-radius: 5px;
+     height: 50px;
+     width: 80px;
+     padding: 5px;
+     color: whitesmoke;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ }
