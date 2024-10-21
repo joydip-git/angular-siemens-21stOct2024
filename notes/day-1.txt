@@ -1,1 +1,20 @@
-https://github.com/joydip-git/angular-siemens-21stOct2024
+Roadmap:
+--------------------------------------
+Languages:
+JavaScript and TypeScript
+
+server-side framework:
+---------------------------------------
+Node JS
+
+client-side framework for quick UI development:
+----------------------------------------------------------
+Angular
+
+
+s/w =>
+--------------------
+
+1. Node JS
+2. VS Code
+
