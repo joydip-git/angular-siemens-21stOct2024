@@ -18,15 +18,6 @@ s/w =>
 2. VS Code
 
 
-JavaScript:
------------------------------------------
-1. scripting (programming) language
-2. Object-based programming language
-3. loosely typed programming language
-4. dynamic programming language
-5. handle user interaction in web application
-
-
 html (hyper-text mark-up language)
 css (cascading style-sheet)
 javascript
@@ -78,6 +69,99 @@ web servers which are light-weight, without lots of features, simply to host you
 Live Server (As a plugin of VS Code)
 Lite server 
 webpack-dev-server (Webpack)
+
+
+JavaScript:
+-----------------------------------------
+1. scripting (programming) language
+2. Object-based programming language
+3. loosely typed programming language
+4. dynamic programming language
+5. handle user interaction in web application
+6. there is no strict data typification in JS
+
+can be written in:
+1. HTML file itself, inside in a script tag, placed in either head or body element or simultaneously in both
+2. in a separate file owth extension "js" and linking the same with HTML file using script tag
+
+web application programming model: event-based programming
+
+data types in JS:
+-----------------------------
+1. number
+2. string => ""/''
+3. boolean
+4. object
+5. function
+
+keywords (data type/value)
+----------------------------
+undefined, null, NaN, Infinity
+
+undefined+12 => NaN
+12/0 => Infinity
+
+operators:
+-----------
+=== (strict equality) and !== (strict inequality)
+if(a==b) if (a===b)
+
+var a = undefined
+if(a) => if a is defined (NOT undefined)
+if(a !==undefined)
+
+control flow statements:
+-----------------------------
+if, if...else
+while, do...while
+switch...case
+
+for, for...in, for...of
+
+JS engines of different browsers:
+---------------------------------------------
+chrome: v8
+safari: JS Core (nitro)
+firefox: spidermonkey
+opera, edge: chromium
+
+
+JS execution:
+-----------------------------
+1. preparation stage
+2. execution stage
+
+whenever a function is invoked in JS, an ibhect is created, known as - function execution context object (FEC)
+
+variables declared using "var","let" and "const" keywords, are considered as "local" variable of that function. memory blocks for those local variables will be part an object, refererred by a property "variable object" of FEC
+
+hoisting:
+---------------
+variable hoisting
+function hoisting => function declaration is hoisted but function expression is not hoisted
+
+ECMA
+ECMAScript => guideline (specification) for scripting languages
+
+2015 	ES 6.0
+------------------------
+let, const keywords
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
