@@ -1,37 +1,30 @@
-function call() {
-    //console.log(x); //undefined
-    let x //var x
-    x = 10
-    console.log(x);//10
-    for (let i = 0; i < 1; i++) {
-        let x //var _x
-        x = 20 //_x=20
-        console.log(x);//20
-        //console.log(_x)
-    }
-    console.log(x);//10
-
-    firstInner() //<-- a declared function can be called even before the function declaration
-    //function declaration
-    function firstInner() {
-        var x
-        x = 30
-        console.log(x);
-    }
-    //firstInner()
-
-    //function expression
-    //secondInner() <-- an expression function can't be called before expression itself
-    var secondInner
-    secondInner = function () {
-        var x
-        x = 30
-        console.log(x);
-    }
-    secondInner()
-
-    const y = 100
-    //y = 200
-    console.log(y);
+//const numbers = new Array(1, 2, 3, 4, 5)
+const numbers = [1, 2, 3, 4, 5]
+numbers.push(10, 20, 30)
+console.log('\nthorugh for\n');
+for (let i = 0; i < numbers.length; i++) {
+    console.log(numbers[i]);
 }
-call()
+console.log('\nthorugh for...in\n');
+for (let index in numbers) {
+    console.log(numbers[index]);
+}
+
+//splice method mutates the original array
+numbers.splice(0, 2, 100, 200)
+console.log('\nthorugh for...of\n');
+for (let value of numbers) {
+    console.log(value);
+}
+
+//does not mutate the original array
+const copy = numbers.slice(0, 3)
+console.log("\n copy values\n", copy);
+
+const evenNumbers = numbers.filter(
+    (num) => num % 2 === 0
+)
+evenNumbers.forEach(
+    (num) => console.log(num)
+)
+//map, reduce, sort, find, findIndex etc. => they work on callback mechanism concept

@@ -146,6 +146,8 @@ ECMAScript => guideline (specification) for scripting languages
 2015 	ES 6.0
 ------------------------
 let, const keywords
+class, constructor, super, extends
+templated string (string interpolation)
 
 
 
