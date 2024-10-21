@@ -149,34 +149,59 @@ let, const keywords
 class, constructor, super, extends
 templated string (string interpolation)
 
+typescript => 
+superset of JS
+1. strict data typing
+2. static type checking
+3. a development mode language
 
+extension => .ts
 
+transpilation (transformation + compilation)=>
+---------------------------------------------------------------
+convert ES6+ (latest) version TS/JS code into vanilla JS code 
 
+tools: 
+--------------------------------
+typescript compiler (tsc) => ES6+ version TS code into vanilla JS code
+babel compiler => ES6+ version JS code into vanilla JS code
 
+TSC:
+-----------------------------
+installation:
+1. global: npm install typescript --location=global
+2. local (app): npm install typescript -D
 
+tool to use to install 3rd party package => NPM (Node Package Manager)
+---------------------------------------------------------------------
+1. global: npm install/i <package-name> --location=global
+path: C:\Users\<user-name>\AppData\Roaming\npm
 
+2. local (app): 
+>npm install <package-name> -D (development dependency)
+>npm install <package-name> (full dependency)
 
+package.json:
+--------------------------------
+configuration file to maintain list of dependencies, version number, package-name, scripts, some other metadata etc. : package.json
+Note: the file must be at the root of the app directory
 
+how to create?
+1. manual
+2. using npm tool
+		commands: >npm init or npm init --yes
 
+Node JS:
+-------------------------------------------------
+Ryan Dahl => Node JS (2009) 
+server-side JS based framework
+provides a runtime for JS code
+built at the top of the a JS engine => V8
+provides a library containing lots of built-in functionalities for
+	- file interaction
+	- creating RESTful web API
+	- creating web application
+Note: all built-in methods are asynchronous by default, though synchronous versions of those methods are also available
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+real time: chatbots, tools (tsc)
 

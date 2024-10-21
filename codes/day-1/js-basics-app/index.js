@@ -1,18 +1,18 @@
 //const numbers = new Array(1, 2, 3, 4, 5)
 const numbers = [1, 2, 3, 4, 5]
 numbers.push(10, 20, 30)
-console.log('\nthorugh for\n');
+console.log('\nthrough for\n');
 for (let i = 0; i < numbers.length; i++) {
     console.log(numbers[i]);
 }
-console.log('\nthorugh for...in\n');
+console.log('\nthrough for...in\n');
 for (let index in numbers) {
     console.log(numbers[index]);
 }
 
 //splice method mutates the original array
 numbers.splice(0, 2, 100, 200)
-console.log('\nthorugh for...of\n');
+console.log('\nthrough for...of\n');
 for (let value of numbers) {
     console.log(value);
 }
