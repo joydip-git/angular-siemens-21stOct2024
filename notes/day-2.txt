@@ -59,14 +59,53 @@ current version: 19
 3. it is a JS-based client-side framework to create web/mobile/hybrid application 
 4. it helps you to build UI quickly thorugh a series of components
 
-partial html (template)
-<nav>
-	button
-	button
-	button
-	button
-	button
-</nav>
+
+create angular application => tool => angular cli (@angular/cli) => ng
+-------------------------------------------------------------------------
+coding using TS, design using HTML, styling using CSS
+
+code needs to be transpiled
+the transpiled code needs to bundled
+dev mode => dev mode bundle
+prod mode => prod mode bundle
+
+in dev mode the bundle will be loaded in the browser by some dev server
+
+install angular cli:
+>npm i @angular/cli --location=global
+
+create angular application:
+---------------------------------------------
+>ng new first-ng-app --standalone=false
+
+files: 
+	package.json
+	ReadMe.md => instructions
+	angular.json => configuration file for app
+
+
+component=>
+		app.component.ts 		=> code
+				class:	AppComponent
+		app.component.html	=> view
+		app.component.css		=> style
+
+
+swiggy
+	resturants
+	cart
+	order
+		module file
+	payment
+	customer
+	delivery
+	admin
+
+C1, C100
+
+
+
+
 
 
 
