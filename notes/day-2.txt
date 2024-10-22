@@ -10,3 +10,17 @@ generic
 custom type in TS
 
 Promise => asynchronity
+
+JS runtimes:
+browser, node js, deno, bun etc.
+
+
+(parameter) resolveFn: (value: number | PromiseLike<number>) => void
+
+var Promise: PromiseConstructor
+new <number>(executor: 
+(resolve: (value: number | PromiseLike<number>) => void, 
+reject: (reason?: any) => void) => void
+) => Promise<number>
+
+This callback is passed two arguments: a resolve callback used to resolve the promise with a value or the result of another promise, and a reject callback used to reject the promise with a provided reason or error.

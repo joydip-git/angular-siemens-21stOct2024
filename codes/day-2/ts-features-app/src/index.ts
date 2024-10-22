@@ -1,6 +1,7 @@
-interface ICalculation<TElement, TResult> {
-    add(a: TElement, b: TElement): TResult;
-    subtract(a: TElement, b: TElement): TResult;
+//X and Y => Type Parameters
+interface ICalculation<X, Y> {
+    add(a: X, b: X): Y;
+    subtract(a: X, b: X): Y;
 }
 abstract class Calculation implements ICalculation<number, number> {
     subtract(a: number, b: number): number {
@@ -41,11 +42,11 @@ collection.items.forEach(item => console.log(item))
 
 type fnType<T, TResult> = (element: T) => TResult
 
-function filterValues<T, TResult>(input: T[], fnRef: fnType<T, TResult>): T[] {
+function filterValues<T, TResult>(input: T[], logic: fnType<T, TResult>): T[] {
     const output: T[] = []
     input.forEach(
         item => {
-            if (fnRef(item))
+            if (logic(item))
                 output.push(item)
         }
     )
