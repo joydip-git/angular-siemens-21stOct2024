@@ -1,0 +1,12 @@
+TypeScript:
+------------------------
+create tsconfig.json file
+1. manually 
+2. using tsc command: >.\node_modules\.bin\tsc --init
+
+abstract class
+interface
+generic
+custom type in TS
+
+Promise => asynchronity
