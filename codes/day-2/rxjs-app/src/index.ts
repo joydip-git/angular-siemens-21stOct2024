@@ -25,7 +25,7 @@ const dataStorage = DataStorage.instantiate()
 const subscription: Subscription = dataStorage
     .storageObservable
     .subscribe({
-        next: (data) => console.log(data),
+        next: (data) => console.log('received: ' + data),
         error: (e) => console.log(e.message)
     })
 
@@ -37,10 +37,12 @@ setTimeout(
     10000
 )
 
+let value = 0
 setInterval(
     () => {
-        let value = 0
-        dataStorage.publish(value++)
+        value = ++value
+        console.log('publishing value: ' + value);
+        dataStorage.publish(value)
     },
     1000
 )
