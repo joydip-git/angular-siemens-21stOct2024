@@ -1,35 +1,48 @@
-import { Observable, Observer, of, Subscription } from "rxjs";
+import { BehaviorSubject, Observable, Subscription } from "rxjs";
 
-const numbers = [1, 2, 3, 4]
-let obsOfNumbers: Observable<number[]> = of(numbers)
+class DataStorage {
+    private subject: BehaviorSubject<number>;
+    private static storage?: DataStorage;
 
-const numbersObserver: Observer<number[]> = {
-    next: (data) => {
-        console.log(data);
-    },
-    error: (err) => {
-        console.log(err.message);
-    },
-    complete: () => { }
+    storageObservable: Observable<number>;
+    private constructor() {
+        this.subject = new BehaviorSubject<number>(0)
+        this.storageObservable = this.subject.asObservable()
+    }
+    publish(element: number) {
+        this.subject.next(element)
+    }
+    static instantiate(): DataStorage {
+        if (!this.storage) {
+            this.storage = new DataStorage()
+        }
+        return this.storage
+    }
 }
-const subscription: Subscription =
-    obsOfNumbers
-        .subscribe(numbersObserver)
+
+const dataStorage = DataStorage.instantiate()
+
+const subscription: Subscription = dataStorage
+    .storageObservable
+    .subscribe({
+        next: (data) => console.log(data),
+        error: (e) => console.log(e.message)
+    })
 
 setTimeout(
     () => {
         subscription.unsubscribe()
         console.log('subscription released');
     },
-    3000
+    10000
 )
 
-// setTimeout(
-//     () => {
-//         numbers.push(10, 20, 30)
-//         obsOfNumbers = of(numbers)
-//     },
-//     1000
-// )
+setInterval(
+    () => {
+        let value = 0
+        dataStorage.publish(value++)
+    },
+    1000
+)
 
 
