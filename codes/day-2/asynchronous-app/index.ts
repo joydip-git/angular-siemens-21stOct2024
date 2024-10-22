@@ -1,4 +1,4 @@
-const divide = (a: number, b: number) => {
+const divide = async (a: number, b: number) => {
     const p = new Promise<number>(
         //executor function (task)
         (resolveFnRef, rejectFnRef) => {
@@ -25,13 +25,19 @@ const divPromise = divide(12, 3)
 divPromise
     .then(
         //first call back is executed when promise is in fulfilled state
-        (data) => { console.log(data) },
+        (data) => {
+            console.log(data)
+            add(10, data)
+                .then(
+                    (data) => { console.log(data) }
+                )
+        },
         //second call back is executed when promise is in rejected state
         (error) => { console.log(error) }
     )
 
-add(12, 3)
-    .then(
-        (data) => { console.log(data) }
-    )
+// add(12, 3)
+//     .then(
+//         (data) => { console.log(data) }
+//     )
 
