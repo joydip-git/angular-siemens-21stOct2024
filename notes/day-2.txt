@@ -9,14 +9,14 @@ interface
 generic
 custom type in TS
 
-Promise => asynchronity
+asynchronity in JS:
+--------------------------------
+1. Promise API
+2. async and await keywords
+3. RxJS asynchronous programming APIs (3rd party API)
 
-JS runtimes:
-browser, node js, deno, bun etc.
-
-
-(parameter) resolveFn: (value: number | PromiseLike<number>) => void
-
+Promise:
+-----------------------------------
 var Promise: PromiseConstructor
 new <number>(executor: 
 (resolve: (value: number | PromiseLike<number>) => void, 
@@ -25,7 +25,8 @@ reject: (reason?: any) => void) => void
 
 This callback is passed two arguments: a resolve callback used to resolve the promise with a value or the result of another promise, and a reject callback used to reject the promise with a provided reason or error.
 
-
+RxJS:
+---------------------------------------
 reactivex.io => Reactive Programming 
 
 objects: Observable, Observer, Subscription, Subject, BehaviorSubject etc.
@@ -39,7 +40,38 @@ JS => RxJS
 
 
 RxJS => Reactive Extensions to JavaScript
--------------------------------------------------
+
+JS runtimes:
+----------------------------
+browser, node js, deno, bun etc.
+
+
+Angular:
+-----------------------------------------------
+Angular JS (2009) => 1.0 => 1.6.2 (1.x)
+and 
+Angular (2016) => 2.0
+
+current version: 19
+
+1. this helps you create Single Page Applications (SPAs)
+2. helps you convert SPA into Progressive Web App
+3. it is a JS-based client-side framework to create web/mobile/hybrid application 
+4. it helps you to build UI quickly thorugh a series of components
+
+partial html (template)
+<nav>
+	button
+	button
+	button
+	button
+	button
+</nav>
+
+
+
+
+
 
 
 
