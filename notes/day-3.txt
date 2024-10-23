@@ -123,4 +123,27 @@ exports:[AC1]				imports:[AModule]				imports:[BModule]
 								exports:[BC1,AModule]
 
 
+Ng generate command: (treats "app" directory as the root for any file that it generates)
+-----------------------------------------------------------------------------------------
+module: ng generate/g module/m products (app/products/products.module.ts => ProductsModule)
+
+component: ng generate/g component/c products/components/product-list (app/products/components/product-list/product-list.component.ts/.spec.ts/html/css)
+ProductListComponent
+
+automatic registration:
+@NgModule({declarations:[ProductListComponent]})
+ProductsModule
+
+pipe: ng g pipe/p products/pipes/filter-product (app/products/pipes/filter-product.pipe.ts => FilterProductPipe)
+
+automatic registration:
+@NgModule({declarations:[ProductListComponent, FilterProductPipe]})
+ProductsModule
+
+
+
+
+
+
+
 
