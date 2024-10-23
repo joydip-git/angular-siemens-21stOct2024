@@ -1,0 +1,9 @@
+<h2 class="text-dark">
+    List of Products
+</h2>
+<br>
+<app-product-filter (filtrationValueChanged)="updateFilterTextHandler($event)"></app-product-filter>
+<br>
+<app-product-list [filterText]="filtrationValue">
+
+</app-product-list>

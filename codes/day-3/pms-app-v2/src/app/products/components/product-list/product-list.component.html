@@ -1,0 +1,27 @@
+<ng-template #norecordTemplate>
+    <span>No product records found...</span>
+</ng-template>
+<table *ngIf="products.length>0;else norecordTemplate" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody class="table-dark">
+        <tr *ngFor="let p of products|filterProduct:filterText">
+            <td>
+                <img class="img-style" [src]="p.imageUrl" alt="NA" [title]="p.productName">
+            </td>
+            <td>{{p.productName|uppercase}}</td>
+            <td>{{p.price|currency:'INR'}}</td>
+            <td>{{p.starRating}}</td>
+            <td>
+                <button class="btn btn-danger btn-style" type="button">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,5 @@
+<div>
+    <label for="txtFilter">Filter By: &nbsp;</label>
+    <input type="text" class="form-control" id="txtFilter" [value]="filterText"
+        (input)="updateFilterText(filterInput.value)" #filterInput>
+</div>
