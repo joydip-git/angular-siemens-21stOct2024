@@ -140,8 +140,33 @@ automatic registration:
 @NgModule({declarations:[ProductListComponent, FilterProductPipe]})
 ProductsModule
 
+passing data between components:
+------------------------------------------------
+1. parent to nested component and vice versa
+2. sibling components
+
+3. deeply nested components
+4. components which are not nested in common parent and are in completely different tree
+
+5. routed components
 
 
+passing data from parent to nested:
+-----------------------------------------
+we use "data binding" mechanism
+the nested component must have a property that can accept value from parent (parent can bind data to the nested component property) and that property must be decorated with @Input() decorator from @angular/core package
+
+
+passing data from nested to parent:
+-----------------------------------------
+we use "event binding" mechanism
+
+the nested component must have a property, which is actually represents an event
+the nested component must fire that event and emit the data it wants to pass to the parent
+parent has to handle the event of the nested component by assigning a method (event-handler) in its code
+
+
+set {data = value;}
 
 
 

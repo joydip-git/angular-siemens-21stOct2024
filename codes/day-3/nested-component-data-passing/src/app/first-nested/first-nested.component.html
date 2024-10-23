@@ -1,0 +1,6 @@
+<div>
+    <h3>1st nested component</h3>
+    <br>
+    <label for="txtName">Enter Name to Pass to Parent:&nbsp;</label>
+    <input type="text" id="txtName" [value]="personName" (input)="nameUpdated(nameInput.value)" #nameInput>
+</div>
