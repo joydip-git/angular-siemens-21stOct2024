@@ -1,8 +1,8 @@
 import { BehaviorSubject, Observable, Subscription } from "rxjs";
 
-class DataStorage {
+class DataStorageService {
     private subject: BehaviorSubject<number>;
-    private static storage?: DataStorage;
+    private static storage?: DataStorageService;
 
     storageObservable: Observable<number>;
     private constructor() {
@@ -12,15 +12,15 @@ class DataStorage {
     publish(element: number) {
         this.subject.next(element)
     }
-    static instantiate(): DataStorage {
+    static instantiate(): DataStorageService {
         if (!this.storage) {
-            this.storage = new DataStorage()
+            this.storage = new DataStorageService()
         }
         return this.storage
     }
 }
 
-const dataStorage = DataStorage.instantiate()
+const dataStorage = DataStorageService.instantiate()
 
 const subscription: Subscription = dataStorage
     .storageObservable

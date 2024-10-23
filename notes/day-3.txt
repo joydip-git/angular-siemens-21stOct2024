@@ -1,0 +1,16 @@
+the "things" that you can create in angular application:
+------------------------------------------------------------------
+asset				type				decorator (@angular/core)
+------------------------------------------------------
+component			class			@Component({...})
+directive			class 			@Directive({...})
+pipe					class			@Pipe({...})
+service				class			@Injectable({...}) [optional]
+module				class			@NgModule({...})
+
+
+1. binding
+2. directives
+3. how to display a list of items in UI
+4. pipe and how to create custom pipe
+5. how to pass data from parent to a nested component and vice versa
