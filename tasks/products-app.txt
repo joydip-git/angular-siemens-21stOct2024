@@ -18,6 +18,16 @@ display only values of "imageUrl", "productName", "price", "starRating" thorugh 
 Note: product-list will displayed as nested component of app component
 
 
+enhancement-1:
+---------------------------
+1. create separate component for filtration (product-filter)
+2. create another component (product-container)
+3. nest the product-list and product-filter inside product-container
+4. make the product-container exportable (remove product-list from exports array)
+5. nest product-container inside app component
+
+Note: product-filter should pass text to filter (product name) to product-list via product-container
+
 structure:
 	app
 		app.component.ts 			=> AppComponent
@@ -29,13 +39,35 @@ structure:
 			products.module.ts (feature module) => ProductsModule
 
 			components (sub-folder)
+				product-container (sub-folder)
+					product-container.component.ts	=> ProductContainerComponent
+					product-container.component.html
+					product-container.component.css
+
 				product-list (sub-folder)
 					product-list.component.ts	=> ProductListComponent
 					product-list.component.html
 					product-list.component.css
 
+				product-filter (sub-folder)
+					product-filter.component.ts	=> ProductFilterComponent
+					product-filter.component.html
+					product-filter.component.css
+
 			pipes (sub-folder)
 				filter-product.pipe.ts => FilterProductPipe
+
+app.component.html
+<app-product-container></...>
+
+
+product-container.component.html
+<app-product-filter>
+
+br
+
+<app-product-list>
+
 
 
 
