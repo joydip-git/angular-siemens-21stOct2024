@@ -1,0 +1,44 @@
+display the sample product records in app
+display only values of "imageUrl", "productName", "price", "starRating" thorugh a table element, with 4 columns (image, name, price, rating)
+
+1. create a feature module "products" (inside a sub-folder products in app directory)
+2. create a component file "product-list" (inside the products/components/product-list folder)
+3. register the component with products module
+
+4. also, need facility to filter the product records by "productName"
+5. in the product-list component at the top of table create a textbox with a label. the records, displayed below through the table will be filtered by the value (product name) as entered in the text box.
+
+6. product names must be displayed in uppercase and the price of the products should be displayed with INR currency symbol
+
+7. create an alternate template in case there is no product present, which displays "No products available"
+
+8. create a model to represent each product object in a separate file
+9. save the sample data in an array (which should be of type product array) in a separate file
+
+Note: product-list will displayed as nested component of app component
+
+
+structure:
+	app
+		app.component.ts 			=> AppComponent
+		app.component.html
+		app.component.css
+		app.module.ts (root) 	=> AppModule
+
+		products (sub-folder)
+			products.module.ts (feature module) => ProductsModule
+
+			components (sub-folder)
+				product-list (sub-folder)
+					product-list.component.ts	=> ProductListComponent
+					product-list.component.html
+					product-list.component.css
+
+			pipes (sub-folder)
+				filter-product.pipe.ts => FilterProductPipe
+
+
+
+
+
+

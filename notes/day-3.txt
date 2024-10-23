@@ -3,31 +3,36 @@ the "things" that you can create in angular application:
 asset				type				decorator (@angular/core)
 ------------------------------------------------------
 component			class			@Component({...})
-directive			class 			@Directive({...})
+directive			class 		@Directive({...})
 pipe					class			@Pipe({...})
-service				class			@Injectable({...}) [optional]
 module				class			@NgModule({...})
+service				class			@Injectable({...}) [optional]
 
 
 1. binding
 2. directives
 3. how to display a list of items in UI
-4. pipe and how to create custom pipe
-
-5. how to pass data from parent to a nested component and vice versa
+4. conditional rendering
+5. pipe and how to create custom pipe
 
 Binding and declarative syntaxes:
 1. data binding: passing data from the code of the component to view of the same component
 	a. {{ <property-value> }} => interpolation (always stringifies the data)
-	b. [proprty/attribute-of-the-element]="class-property-value" => property binding (does not strigify the property value)
+	b. <element [proprty/attribute-of-the-element]="class-property-value"> => property binding (does not strigify the property value)
 
 2. event binding
+	<element (event-name)="method-of-the-component(values)">
 
 data property			controls
 ----------------------------------
 title						h2		
 
+dirty checking
+change detection
+
 template variable: a variable to store the reference of the template (i.e. a textbox dom object in my app)
+
+<element (event)="method(elementRef.propName)" #elementRef>
 
 var titleInput = document.getElementById('txtTitle')
 titleInput.value
@@ -78,7 +83,7 @@ directives:
 	example: ngModel, ngForm, formControl, ....
 
 3. component directives => components (only directive with a view)
-
+<ng-template>...</..>
 
 pipe:
 ------------------
@@ -110,6 +115,12 @@ var arr = ddlChoices.options
 var selectedOption = arr[dddlChoices.selectedIndex]
 var choice = selectedOption.text
 
+
+A									B   							C
+----------------------------------------------------------------
+declarations:[AC1]		declarations:[BC1]			declarations:[CC1]
+exports:[AC1]				imports:[AModule]				imports:[BModule]
+								exports:[BC1,AModule]
 
 
 

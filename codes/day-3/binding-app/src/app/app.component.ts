@@ -19,7 +19,7 @@ export class AppComponent {
     name: 'Joydip',
     salary: 3000
   }]
-  selectedChoice = 'Name'
+  selectedChoice = ''
 
   updateChoice(newChoice: string) {
     this.selectedChoice = newChoice

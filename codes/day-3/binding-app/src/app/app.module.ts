@@ -10,12 +10,15 @@ import { SortPeoplePipe } from './pipes/sort-people.pipe';
   declarations: [
     AppComponent, SortPeoplePipe
   ],
+  //register modules
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   //register services
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  //mention the name of assets of the same module to be exported outside. you can use this also to re-export already imported modules
+  exports: []
 })
 export class AppModule { }
