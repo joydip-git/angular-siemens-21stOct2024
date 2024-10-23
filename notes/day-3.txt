@@ -13,4 +13,103 @@ module				class			@NgModule({...})
 2. directives
 3. how to display a list of items in UI
 4. pipe and how to create custom pipe
+
 5. how to pass data from parent to a nested component and vice versa
+
+Binding and declarative syntaxes:
+1. data binding: passing data from the code of the component to view of the same component
+	a. {{ <property-value> }} => interpolation (always stringifies the data)
+	b. [proprty/attribute-of-the-element]="class-property-value" => property binding (does not strigify the property value)
+
+2. event binding
+
+data property			controls
+----------------------------------
+title						h2		
+
+template variable: a variable to store the reference of the template (i.e. a textbox dom object in my app)
+
+var titleInput = document.getElementById('txtTitle')
+titleInput.value
+
+package: @angular/common
+
+@Directive({ selector:'[ngFor]'})
+export class NgForOfDirective{
+	method(expression,template){
+		//dynamically generates the templates
+		var ul = document....('ul')
+		for(let name of names)
+		{
+			var li = document.createElement('li')
+			li.innerText = name
+			ul.append(li)
+
+		}
+	}
+}
+
+@NgModule({
+	declarations:[NgForOfDirective],
+	exports:[NgForOfDirective]
+})
+export class CommonModule{
+}
+
+
+package: @angular/platform-browser
+
+@NgModule({
+	declarations:[],
+	exports:[],
+	imports:[CommonModule],
+	exports:[CommonModule]
+})
+export class BrowserModule{
+}
+
+
+directives:
+---------------------------------------
+1. structural directives => which helps you manipulate DOM
+	example: *ngFor, *ngIf, *ngSwitch
+
+2. attribute directives => which DOES NOT manipulate DOM, but helps you extend the behavior of an existing element
+	example: ngModel, ngForm, formControl, ....
+
+3. component directives => components (only directive with a view)
+
+
+pipe:
+------------------
+a place for writing data transformation (data piping) logic
+
+{{p.name|uppercase}} => new UpperCasePipe().transform(p.name)
+
+{{p.salary|currency:'INR':'0.0-2'}} => new CurrencyPipe().transform(p.salary,'INR','0.0-2')
+
+import {Pipe, PipeTransform} from '@angular/core'
+
+@Pipe({ name:'x'})
+export class XPipe implements PipeTransform{
+		//... => rest operator (to declare such an array as part of the function argument list,which can directly accept any number of parameters)
+		transform(value:any,...args:any[]):any{
+			return //logic...
+		}
+}
+
+@NgModule({
+	declarations:[NgForOfDirective, UpperCasePipe, LowerCasePipe],
+	exports:[NgForOfDirective]
+})
+export class CommonModule{
+}
+
+var ddlChoices = document....()
+var arr = ddlChoices.options
+var selectedOption = arr[dddlChoices.selectedIndex]
+var choice = selectedOption.text
+
+
+
+
