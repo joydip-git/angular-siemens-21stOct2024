@@ -9,15 +9,30 @@ import { POST_SERVICE_TOKEN } from '../config/constants';
   styleUrl: './post-list.component.css'
 })
 export class PostListComponent {
+  //posts: Post[] | undefined;//=[]
+  //or
+  posts?: Post[];
+  fetchComplete = false
+  errorInfo = ''
+
   constructor(@Inject(POST_SERVICE_TOKEN) private ps: ServiceContract<Post>) {
-    this.ps.getAll().subscribe({
-      next: (data) => {
-        //do something data
-      },
-      error: (e) => { },
-      complete: () => {
-        //call next async method
-      }
-    })
+    //this.posts = []
+    const obs = this.ps.getAll()
+    obs
+      .subscribe({
+        next: (data: Post[]) => {
+          this.posts = data
+          this.fetchComplete = true
+          this.errorInfo = ''
+        },
+        error: (e) => {
+          this.posts = undefined
+          this.fetchComplete = true
+          this.errorInfo = e.message
+        },
+        complete: () => {
+
+        }
+      })
   }
 }

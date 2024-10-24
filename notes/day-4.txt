@@ -135,7 +135,34 @@ return value of HttpClient methods:
 Observable<Object>
 	pipe() => pass transformataion logic
 
+const obs = this.ps.getAll()
+    obs.subscribe({
+      //when observable receives data, "next" callback will be called
+      next: () => { },
+      //if observable receives no data, rather exception occurs due to nextwork issue, backend server down etc. "error" callback will be called
+      error: () => { },
+      //if there is no error, after "next" callback this "complete" callback will be called
+      complete: () => {
+        //you can write any other operation (even another async operation) after the "next" callback is executed
+      }
+    })
 
+export interface LoginInformation{
+	userId:string;
+	serviceLevel:string;
+}
+
+RunScheduledTask(taskName: string, sessionID: string, loginInformation: LoginInformation): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const response = this.http.put<any>(`${this.serviceUrl}/RunScheduledTask?taskName=${taskName}&sessionID=${sessionID}`, loginInformation, { headers });
+    return response;
+  }
+
+
+Lifecycle of components:
+-------------------------------------
 
 
 

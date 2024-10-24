@@ -1,1 +1,25 @@
-<p>post-list works!</p>
+<ng-template #fetchStatusTemplate>
+    <span>Loading....</span>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <span>{{errorInfo}}</span>
+</ng-template>
+
+<ng-template #noRecordTemplate>
+    <span>No posts found...</span>
+</ng-template>
+
+<!-- 
+do not use more than one structural directive on a single element, since angular has no way to decide the order of execution of structural directives.
+there is no as such restriction regarding attribute directives
+ -->
+<div *ngIf="fetchComplete;else fetchStatusTemplate">
+    <div *ngIf="errorInfo==='';else errorTemplate">
+        <ul *ngIf="posts && posts.length>0;else noRecordTemplate">
+            <li *ngFor="let p of posts">
+                {{p.id}} &nbsp; {{p.title}}
+            </li>
+        </ul>
+    </div>
+</div>

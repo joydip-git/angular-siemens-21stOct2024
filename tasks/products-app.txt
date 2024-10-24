@@ -51,6 +51,14 @@ You will no longer assign the sample product array data to property of the produ
 4. ask for dependency injection of that service in product list component
 5. call the service method 'getAll' and assign the returned value (array of products) to the property of the class
 
+
+enhancement-3:
+---------------------------
+DO not use the static data (sample array of products)
+fetch the products data from a RESTful backend API server using HttpClient
+also, update your interface too
+
+
 structure:
 	app
 		app.component.ts 			=> AppComponent
