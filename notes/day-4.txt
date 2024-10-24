@@ -40,18 +40,20 @@ providers:[
 	}
 ]
 
-3. Consume:
+or
+providers:[
+	{
+		provide:<custom_token>,
+		useClass:DataService
+	}
+]
+
 
 a. asset level registration:
 @Component({
 	providers:[DataService]
 })
-export class SampleComponent{
-	private ds:DataService;// = new DataService();
-	constructor(_ds:DataService){
-		this.ds = _ds
-	}
-}
+
 
 b. feature module level registration:
 @NgModule({
@@ -67,11 +69,76 @@ c. root module level registration:
 })
 export class AppModule{}
 
+3. Consume:
+i.
+export class SampleComponent{
+	private ds:DataService;// = new DataService();
+	constructor(_ds:DataService){
+		this.ds = _ds
+	}
+}
 
+ii.
+export class SampleComponent{
+	private ds:DataService;// = new DataService();
+	constructor(@Inject(DataService) _ds:DataService){
+		this.ds = _ds
+	}
+}
 
+iii.
+export class SampleComponent{
+	private ds:DataService;// = new DataService();
+	constructor(@Inject(<custom-_token>) _ds:DataService){
+		this.ds = _ds
+	}
+}
 
-						@Injectable() => tells angular to resolve the dependencies of the asset
-@Component(), @Directive, @Pipe(), @NgModule()
+Note:
+1. as provider token, Interface name can't be used
+2. @Inject() is a decorator for parameter of a method, NOT a decorator for property of the class
+
+@Injectable() => tells angular to resolve the dependencies of the asset
+@Component(), @Directive, @Pipe(), @NgModule() etc. all of them implements @Injectable()
+Since the service class is not decorated with any decorator as such, hence if the service class has some other dependenies, then @Injectable() MUST be used with service class to inform angular DI framework to figure out/resolve the dependencies of that service
+
+Best Practice: use @Injectable() at the top of the service always, irrespective of whether that service has any dependencies or not, for the sake of uniformity in Angular.
 
 Inversify JS => used with TypeScript based application
+
+
+HTTP requests:
+------------------------------------------------------
+angular provides a built-in service class 'HttpClient' to make HTTP requests using its methods
+get() => sends HTTP request with GET method to get record(s)
+put() => sends HTTP request with PUT method to update a record
+post() => sends HTTP request with POST method to add a new record
+delete() => sends HTTP request with DELETE method to delete an existing record, 
+patch() etc.
+
+old:
+--------------------------------------------------------------------------
+its provider is registered with a module class => HttpClientModule
+
+providers:[HttpClientModule]
+
+new:
+---------------------------------------------------------------------
+call a method provideHttpClient()
+
+providers:[
+	provideHttpClient()
+]
+
+return value of HttpClient methods:
+-------------------------------------------
+Observable<Object>
+	pipe() => pass transformataion logic
+
+
+
+
+
+
+
 
