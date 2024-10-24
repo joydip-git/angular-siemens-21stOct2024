@@ -10,6 +10,14 @@ import { POST_SERVICE_TOKEN } from '../config/constants';
 })
 export class PostListComponent {
   constructor(@Inject(POST_SERVICE_TOKEN) private ps: ServiceContract<Post>) {
-
+    this.ps.getAll().subscribe({
+      next: (data) => {
+        //do something data
+      },
+      error: (e) => { },
+      complete: () => {
+        //call next async method
+      }
+    })
   }
 }
