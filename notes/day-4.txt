@@ -1,2 +1,77 @@
 services in angular and dependency injection:
 -----------------------------------------------------
+
+services:
+--------------------------
+
+1. creation:
+file=> data.service.ts
+
+export class DataService{
+	constructor(){}	
+	getData(){}
+	saveData(){}
+	removeData(){	}
+}
+
+2. register a service provider:
+
+a. is the service going to be used by an asset (would you like to hae a dedicated service instance for an asset?)
+	register a service provider at the asset level
+	note: if you regster the service provider at parent level for nested components, then single dedicated instance of service for the parent component will be created and shared across instances of nested components
+
+b. would you like to have a single service instance for all the assets of a feature module?
+	register a service provider at the feature module level
+
+c. would you like to have a single service instance for all the assets of the entire application?
+	register a service provider at the root module level
+
+Angular maintains 3 types of Injector, one for each level
+
+providers:[
+	DataService (DataService => DataService)
+]
+
+or
+providers:[
+	{
+		provide:DataService,
+		useClass:DataService
+	}
+]
+
+3. Consume:
+
+a. asset level registration:
+@Component({
+	providers:[DataService]
+})
+export class SampleComponent{
+	private ds:DataService;// = new DataService();
+	constructor(_ds:DataService){
+		this.ds = _ds
+	}
+}
+
+b. feature module level registration:
+@NgModule({
+	declarations:[SampleComponent,,,,],
+	providers:[DataService]
+})
+export class SomeModule{}
+
+c. root module level registration:
+@NgModule({
+	declarations:[AppComponent,...],
+	providers:[DataService]
+})
+export class AppModule{}
+
+
+
+
+						@Injectable() => tells angular to resolve the dependencies of the asset
+@Component(), @Directive, @Pipe(), @NgModule()
+
+Inversify JS => used with TypeScript based application
+

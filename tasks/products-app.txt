@@ -28,6 +28,29 @@ enhancement-1:
 
 Note: product-filter should pass text to filter (product name) to product-list via product-container
 
+
+enhancement-2:
+---------------------------
+You will no longer assign the sample product array data to property of the product-list component directly. the data will be returned by the service class method.
+
+1. create a service class "ProductService"
+2. the service class should implement an interface "ServiceContract" which should be a generic interface with following two methods (As of now)
+	i. getAll() 
+		method to return all records (products or customers or cart items etc.)
+		i.e. an array of T
+
+	Note: 	when implemented in product service class the method should return the array of product objects
+
+	ii. get(id:number) 
+		method to return an instance of T where T must have an id value same that of the argument of the method 
+
+		Note: 	when implemented in product service class the method should return the an object of product whose id matches to the given id
+
+
+3. register this service with custom service provider technique in products module
+4. ask for dependency injection of that service in product list component
+5. call the service method 'getAll' and assign the returned value (array of products) to the property of the class
+
 structure:
 	app
 		app.component.ts 			=> AppComponent
@@ -37,6 +60,12 @@ structure:
 
 		products (sub-folder)
 			products.module.ts (feature module) => ProductsModule
+
+			services
+				abstraction
+					servicecontract.ts
+
+				product.service.ts				
 
 			components (sub-folder)
 				product-container (sub-folder)
