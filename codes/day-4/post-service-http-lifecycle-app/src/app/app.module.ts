@@ -9,12 +9,14 @@ import { DATA_SERVICE_TOKEN, DATA_SERVICE_TYPE, POST_SERVICE_TOKEN, POST_SERVICE
 import { TitleService } from './services/title.service';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { PostListComponent } from './post-list/post-list.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NestedComponent,
-    PostListComponent
+    PostListComponent,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule,

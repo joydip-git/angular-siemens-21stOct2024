@@ -174,8 +174,30 @@ obs
 	)
 ).subscribe({})
 
+
+note: side-effect causing code should not be written inside component's constructor
+
 Lifecycle of components:
 -------------------------------------
+1. creation phase:
+	a. ctor called
+	b. changes event fired
+	c. init event fired (fired ONE time in the lifecycle of component)
+
+2. update phase:
+	a. changes event fired every time nested component receives data from parent
+
+3. destruction:
+	a. destroy event gets fired
+
+event			interface		method
+-----------------------------------------
+	X			OnX				ngOnX
+
+
+
+
+
 
 
 

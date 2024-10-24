@@ -1,0 +1,8 @@
+<app-first-nested (nameChanged)="updateName($event)"></app-first-nested>
+<br>
+<br>
+<button type="button" (click)="updateShow()">{{show?'Hide':'Show'}}</button>
+<br>
+<app-second-nested [nameData]="nameValue" *ngIf="show"></app-second-nested>
+
+<!-- Name:&nbsp;<input type="text" [value]="nameValue" (input)="updateName(nameInput.value)" #nameInput> -->

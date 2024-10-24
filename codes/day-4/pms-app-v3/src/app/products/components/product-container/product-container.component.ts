@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ProductContainerComponent {
   filtrationValue = ''
+  // show = false
 
+  // updateShow() {
+  //   this.show = !this.show
+  // }
   updateFilterTextHandler(newValue: string) {
     this.filtrationValue = newValue
   }
