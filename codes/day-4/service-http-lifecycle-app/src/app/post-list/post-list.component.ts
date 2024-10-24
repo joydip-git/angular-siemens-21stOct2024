@@ -17,22 +17,44 @@ export class PostListComponent {
 
   constructor(@Inject(POST_SERVICE_TOKEN) private ps: ServiceContract<Post>) {
     //this.posts = []
-    const obs = this.ps.getAll()
-    obs
-      .subscribe({
-        next: (data: Post[]) => {
-          this.posts = data
-          this.fetchComplete = true
-          this.errorInfo = ''
-        },
-        error: (e) => {
-          this.posts = undefined
-          this.fetchComplete = true
-          this.errorInfo = e.message
-        },
-        complete: () => {
+    // const obs = this.ps.getAll()
+    // obs
+    //   .subscribe({
+    //     next: (data: Post[]) => {
+    //       this.posts = data
+    //       this.fetchComplete = true
+    //       this.errorInfo = ''
+    //     },
+    //     error: (e) => {
+    //       this.posts = undefined
+    //       this.fetchComplete = true
+    //       this.errorInfo = e.message
+    //     },
+    //     complete: () => {
 
+    //     }
+    //   })
+    this.ps.getAll()
+      .then(
+        (obs) => {
+          obs
+            .subscribe({
+              next: (data: Post[]) => {
+                this.posts = data
+                this.fetchComplete = true
+                this.errorInfo = ''
+              },
+              error: (e) => {
+                this.posts = undefined
+                this.fetchComplete = true
+                this.errorInfo = e.message
+              },
+              complete: () => {
+
+              }
+            })
         }
-      })
+      )
+    console.log('hello...');
   }
 }

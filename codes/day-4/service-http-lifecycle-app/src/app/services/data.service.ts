@@ -17,7 +17,7 @@ export class DataService implements ServiceContract<string> {
     getData(): string {
         return this.ts.getTitle()
     }
-    getAll() {
+    async getAll() {
         return of([''])
     }
     get(id: number): Observable<string> {

@@ -11,7 +11,7 @@ export class PostService implements ServiceContract<Post> {
   getData(): Post {
     throw new Error('Method not implemented.');
   }
-  getAll(): Observable<Post[]> {
+  async getAll(): Promise<Observable<Post[]>> {
     const obs: Observable<Post[]> = this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts',
       {
         headers: new HttpHeaders({

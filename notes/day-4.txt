@@ -161,6 +161,19 @@ RunScheduledTask(taskName: string, sessionID: string, loginInformation: LoginInf
   }
 
 
+Observable() 
+get()=> Observable<T> => Promise<T>,
+
+obs
+	.pipe(
+		take()
+		
+	),
+	filter(
+		
+	)
+).subscribe({})
+
 Lifecycle of components:
 -------------------------------------
 
