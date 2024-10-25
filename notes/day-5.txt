@@ -26,6 +26,11 @@ ng g c products/components/add-product --standalone=false
 http://localhost:4200/products/add			 	=> AddProductComponent
 
 
+'' => http://localhost:4200/products or http://localhost:4200/
+
+Route Matching Strategy:
+1. prefix (Default)
+2. full
 
 Routing:
 --------------------------------------
@@ -48,9 +53,9 @@ RouterModule.forRoot(array of routes)/forChild()
 
 where to write routing configuration?
 ----------------------------------------------
-create routes of fetaure modules in the feature module class itself
+1. create routes of fetaure modules in the feature module class file itself
 or 
-separate routing module file for every feature module
+2. separate routing module file for every feature module
 
 
 

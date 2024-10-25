@@ -11,18 +11,38 @@ import { ViewProductComponent } from './components/view-product/view-product.com
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { Routes, RouterModule } from '@angular/router';
 
+// const productRoutes: Routes = [
+//   {
+//     path: 'products', component: ProductContainerComponent
+//   },
+//   {
+//     path: 'products/add', component: AddProductComponent
+//   },
+//   {
+//     path: 'products/view/:id', component: ViewProductComponent
+//   },
+//   {
+//     path: 'products/update/:id', component: UpdateProductComponent
+//   }
+// ]
+
 const productRoutes: Routes = [
   {
-    path: 'products', component: ProductContainerComponent
-  },
-  {
-    path: 'products/add', component: AddProductComponent
-  },
-  {
-    path: 'products/view/:id', component: ViewProductComponent
-  },
-  {
-    path: 'products/update/:id', component: UpdateProductComponent
+    path: 'products',
+    children: [
+      {
+        path: '', component: ProductContainerComponent
+      },
+      {
+        path: 'add', component: AddProductComponent
+      },
+      {
+        path: 'view/:id', component: ViewProductComponent
+      },
+      {
+        path: 'update/:id', component: UpdateProductComponent
+      }
+    ]
   }
 ]
 
@@ -38,7 +58,8 @@ const productRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(productRoutes)
+    RouterModule.forChild(productRoutes)
+    //RouterModule.forRoot(productRoutes)
   ],
   providers: [
     {
