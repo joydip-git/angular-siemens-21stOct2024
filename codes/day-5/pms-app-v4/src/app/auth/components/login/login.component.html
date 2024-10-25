@@ -1,0 +1,27 @@
+<!-- <form (submit)="submit($event)">
+    <div>
+        <label for="txtUserName">UserName: &nbsp;</label>
+        <input type="text" id="txtUserName" [formControl]="username">
+    </div>
+    <div>
+        <label for="txtPassword">Password: &nbsp;</label>
+        <input type="password" id="txtPassword" [formControl]="password">
+    </div>
+    <div>
+        <input type="submit" value="LogIn">
+    </div>
+</form> -->
+
+<form (submit)="submit()" [formGroup]="loginFrm">
+    <div>
+        <label for="txtUserName">UserName: &nbsp;</label>
+        <input type="text" id="txtUserName" formControlName="username">
+    </div>
+    <div>
+        <label for="txtPassword">Password: &nbsp;</label>
+        <input type="password" id="txtPassword" formControlName="password">
+    </div>
+    <div>
+        <input type="submit" value="LogIn">
+    </div>
+</form>

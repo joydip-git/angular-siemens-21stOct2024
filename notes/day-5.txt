@@ -17,10 +17,10 @@ products fetaure module:
 http://localhost:4200/products 					=> ProductContainerComponent
 
 ng g c products/components/view-product --standalone=false
-http://localhost:4200/products/view/:id 	=> ViewProductComponent
+http://localhost:4200/products/view/:id 		=> ViewProductComponent
 
 ng g c products/components/update-product --standalone=false
-http://localhost:4200/products/update/:id	=> UpdateProductComponent
+http://localhost:4200/products/update/:id		=> UpdateProductComponent
 
 ng g c products/components/add-product --standalone=false
 http://localhost:4200/products/add			 	=> AddProductComponent
@@ -72,6 +72,32 @@ where to write routing configuration?
 1. create routes of fetaure modules in the feature module class file itself
 or 
 2. separate routing module file for every feature module
+
+
+protecting the routes
+guard => gurad the routes
+
+export class AuthGurad implements CanActivate{
+	
+}
+
+HTTP -> GET
+?username=joydip@gmail.com&password=joydi@123
+
+HTTP POST
+
+
+forms
+------------------------------
+Reactive Form:
+	each and every control, even the form element, can be connected to FormControl and FormGroup object (respectively), that are created through code.
+	these FormControl, FormGroup objects help you pass data to and from view to code very easily without any explicit data binding and event binding synchronously.
+	to connect every input control with every formcontrol object and form with formgroup object angular provides certain attribute directives
+
+package: @angular/forms
+modules: ReactiveFormsModule => formComtrol, formGroup, formControlName, formGroupName etc. attribute directives
+
+
 
 
 

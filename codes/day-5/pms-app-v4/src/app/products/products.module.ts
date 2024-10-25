@@ -10,6 +10,9 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { Routes, RouterModule } from '@angular/router';
+//import { authGuard } from '../auth/services/auth.guard';
+import { AuthModule } from '../auth/auth.module';
+import { AuthGuard } from '../auth/services/auth.guard';
 
 // const productRoutes: Routes = [
 //   {
@@ -29,6 +32,8 @@ import { Routes, RouterModule } from '@angular/router';
 const productRoutes: Routes = [
   {
     path: 'products',
+    canActivate: [AuthGuard],
+    //canActivate: [authGuard],
     children: [
       {
         path: '', component: ProductContainerComponent
@@ -58,6 +63,7 @@ const productRoutes: Routes = [
   ],
   imports: [
     CommonModule,
+    AuthModule,
     RouterModule.forChild(productRoutes)
     //RouterModule.forRoot(productRoutes)
   ],
@@ -66,7 +72,8 @@ const productRoutes: Routes = [
       provide: APP_CONSTANTS.PRODUCT_SERVICE_TOKEN,
       useClass: APP_CONSTANTS.PRODUCT_SERVICE_TYPE
     },
-    provideHttpClient()
+    provideHttpClient(),
+    //AuthGuard
   ],
   exports: [ProductContainerComponent]
 })
