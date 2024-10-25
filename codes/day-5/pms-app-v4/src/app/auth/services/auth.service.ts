@@ -19,15 +19,6 @@ export class AuthService {
         return this._http.post<ApiResponse<User>>(`${APP_CONSTANTS.AUTH_SERVICE_URL}/register`, user)
     }
 
-    saveAuthToken(token: string) {
-        sessionStorage.setItem('token', token)
-    }
-    getAuthToken() {
-        return sessionStorage.getItem('token')
-    }
-    removeAuthToken() {
-
-    }
     isLoggedIn() {
         return true
     }

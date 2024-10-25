@@ -32,7 +32,8 @@ import { AuthGuard } from '../auth/services/auth.guard';
 const productRoutes: Routes = [
   {
     path: 'products',
-    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    //or
     //canActivate: [authGuard],
     children: [
       {

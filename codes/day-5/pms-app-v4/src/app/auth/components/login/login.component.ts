@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user';
 import { Subscription } from 'rxjs';
+import { TokenService } from '../../../services/tonen.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +31,12 @@ export class LoginComponent implements OnDestroy {
   loginFrm: FormGroup;
   private authSub?: Subscription;
 
-  constructor(private builder: FormBuilder, private authSvc: AuthService) {
+  constructor(
+    private builder: FormBuilder,
+    private authSvc: AuthService,
+    private tokenSvc: TokenService,
+    private router: Router
+  ) {
     this.loginFrm = this.builder.group({
       username: ['enter username'],
       password: ['enter password']
@@ -49,9 +56,13 @@ export class LoginComponent implements OnDestroy {
         next: (respone) => {
           //console.log(respone.data);
           if (respone.data !== null) {
-            this.authSvc.saveAuthToken(respone.data)
+            this.tokenSvc.saveToken(respone.data)
           } else
             alert('not a valid user')
+        },
+        error: (e) => { },
+        complete: () => {
+          this.router.navigate(['/products'])
         }
       })
   }

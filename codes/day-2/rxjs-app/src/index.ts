@@ -1,5 +1,6 @@
 import { BehaviorSubject, Observable, Subscription } from "rxjs";
 
+//@Injectable()
 class DataStorageService {
     private subject: BehaviorSubject<number>;
     private static storage?: DataStorageService;
@@ -22,6 +23,7 @@ class DataStorageService {
 
 const dataStorage = DataStorageService.instantiate()
 
+//Update component
 const subscription: Subscription = dataStorage
     .storageObservable
     .subscribe({
@@ -37,6 +39,7 @@ setTimeout(
     10000
 )
 
+//from ViewProduct
 let value = 0
 setInterval(
     () => {

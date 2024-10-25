@@ -5,21 +5,30 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { APP_CONSTANTS } from '../../config/appconstants';
 import { ApiResponse } from '../../models/apiresponse';
 import { Observable } from 'rxjs';
+import { TokenService } from '../../services/tonen.service';
 
 @Injectable()
 export class ProductService implements ServiceContract<Product> {
-  constructor(private _http: HttpClient) {
+  constructor(
+    private _http: HttpClient,
+    private tokenSvc: TokenService
+  ) {
 
   }
   getAll(): Observable<ApiResponse<Product[]>> {
-    // return this._http.get<ApiResponse<Product[]>>(APP_CONSTANTS.PRODUCT_SERVICE_URL, {
-    //   headers: new HttpHeaders({
-    //     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3Mjk4NTAwNDcsImV4cCI6MTcyOTg1MTI0N30.SJp2_3EnuOmm8RPFAtrc-U9OzG-QjNFTF0NJO4ykIKU'
-    //   })
-    // })
+    // return this._http.get<ApiResponse<Product[]>>(APP_CONSTANTS.PRODUCT_SERVICE_URL, { headers: this.createAuthHeader() })
     return this._http.get<ApiResponse<Product[]>>(APP_CONSTANTS.PRODUCT_SERVICE_URL)
   }
   get(id: number): Observable<ApiResponse<Product>> {
+    // return this._http.get<ApiResponse<Product>>(`${APP_CONSTANTS.PRODUCT_SERVICE_URL}/${id}`, { headers: this.createAuthHeader() })
     return this._http.get<ApiResponse<Product>>(`${APP_CONSTANTS.PRODUCT_SERVICE_URL}/${id}`)
+  }
+
+  private createAuthHeader() {
+    const token = this.tokenSvc.fetchToken()
+    const authHeader = `Bearer ${token}`
+    return new HttpHeaders({
+      'Authorization': authHeader
+    })
   }
 }

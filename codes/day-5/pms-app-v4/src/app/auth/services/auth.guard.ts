@@ -1,18 +1,17 @@
 import { Injectable } from "@angular/core";
-import { inject } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, GuardResult, MaybeAsync, RouterStateSnapshot } from "@angular/router";
-import { AuthService } from "./auth.service";
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanActivateFn, GuardResult, MaybeAsync, RouterStateSnapshot } from "@angular/router";
+import { TokenService } from "../../services/tonen.service";
 
 @Injectable()
-export class AuthGuard implements CanActivate {
-    constructor(private authSvc: AuthService) { }
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
+export class AuthGuard implements CanActivateChild {
+    constructor(private tokenSvc: TokenService) { }
+    canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
         console.log('in guard');
-        return this.authSvc.isLoggedIn()
+        return this.tokenSvc.isLoggedIn()
     }
 }
 
-// export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> => {
+// export const authGuard: CanActivateChildFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> => {
 //     const authSvc = inject(AuthService)
 //     console.log('in guard');
 //     return authSvc.isLoggedIn()
