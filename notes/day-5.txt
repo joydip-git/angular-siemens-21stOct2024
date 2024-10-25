@@ -1,17 +1,31 @@
 Application Plan:
 ------------------------------------------------------------------
 AppComponent => Root Component
+
+ng g c dash-board --standalone=false
 DashBoard => nested in AppComponent
 
+ng g c home --standalone=false
 http://localhost:4200/home 						=> HomeComponent
 http://localhost:4200		 						=> http://localhost:4200/home
 
+ng g c view-not-found --standalone=false
+http://localhost:4200/<anything-else>		 	=> ViewNotFoundComponent
+
+products fetaure module:
+-------------------------------------------------------------------------------
 http://localhost:4200/products 					=> ProductContainerComponent
+
+ng g c products/components/view-product --standalone=false
 http://localhost:4200/products/view/1 		=> ViewProductComponent
+
+ng g c products/components/update-product --standalone=false
 http://localhost:4200/products/update/1 	=> UpdateProductComponent
+
+ng g c products/components/add-product --standalone=false
 http://localhost:4200/products/add			 	=> AddProductComponent
 
-http://localhost:4200/<anything-else>		 	=> ViewNotFoundComponent
+
 
 Routing:
 --------------------------------------

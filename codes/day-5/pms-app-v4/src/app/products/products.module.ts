@@ -6,18 +6,39 @@ import { ProductContainerComponent } from './components/product-container/produc
 import { ProductFilterComponent } from './components/product-filter/product-filter.component';
 import { APP_CONSTANTS } from '../config/appconstants';
 import { provideHttpClient } from '@angular/common/http';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { ViewProductComponent } from './components/view-product/view-product.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
+import { Routes, RouterModule } from '@angular/router';
 
-
+const productRoutes: Routes = [
+  {
+    path: 'products', component: ProductContainerComponent
+  },
+  {
+    path: 'products/add', component: AddProductComponent
+  },
+  {
+    path: 'products/view/:id', component: ViewProductComponent
+  },
+  {
+    path: 'products/update/:id', component: UpdateProductComponent
+  }
+]
 
 @NgModule({
   declarations: [
     ProductListComponent,
     FilterProductPipe,
     ProductContainerComponent,
-    ProductFilterComponent
+    ProductFilterComponent,
+    AddProductComponent,
+    ViewProductComponent,
+    UpdateProductComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(productRoutes)
   ],
   providers: [
     {
