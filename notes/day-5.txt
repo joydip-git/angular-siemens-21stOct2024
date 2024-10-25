@@ -17,10 +17,10 @@ products fetaure module:
 http://localhost:4200/products 					=> ProductContainerComponent
 
 ng g c products/components/view-product --standalone=false
-http://localhost:4200/products/view/1 		=> ViewProductComponent
+http://localhost:4200/products/view/:id 	=> ViewProductComponent
 
 ng g c products/components/update-product --standalone=false
-http://localhost:4200/products/update/1 	=> UpdateProductComponent
+http://localhost:4200/products/update/:id	=> UpdateProductComponent
 
 ng g c products/components/add-product --standalone=false
 http://localhost:4200/products/add			 	=> AddProductComponent
@@ -39,14 +39,30 @@ client-side routing
 package: @angular/router
 module: RouterModule
 
-service:
+services:
 -------------------------
-Router 
+Router => router engine
+ActivatedRoute => stores the complete navigation information about the current route that is "activated", i.e. being visited. it is a built-in service class.
+RouterState => represents current state of the router, i.e. its a collection or tree of ActivatedRoute service class objects
+
+
+directives:
+-------------------------------
+<router-outlet> => component directive (placeholder for a component to be loaded dynamically when the corresponding route is visited)
+
+routerLink => an attribute directive, which helps you navigate to a client-side route, without reloading the page/application
+routerLink value => a string path or an array of path fragments
+
+example:
+routerLink='/products'
+routerLink="['/products','add']" => routerLink starts building the URL from the supplied path fragments by appending values in the base url from left to right
+
 
 class: (type)
 --------------------------------
 Route => path (products or home), component (PCC or Home)
 Routes => Route[]
+ActivatedRouteSnapshot => current state of the route that is being navigated
 
 route array has to be registered with router engine (via RouterModule)
 RouterModule.forRoot(array of routes)/forChild()
