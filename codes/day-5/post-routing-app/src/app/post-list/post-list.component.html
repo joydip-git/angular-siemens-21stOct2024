@@ -1,0 +1,28 @@
+<ng-template #fetchStatusTemplate>
+    <span>Loading....</span>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <span>{{errorInfo}}</span>
+</ng-template>
+
+<ng-template #noRecordTemplate>
+    <span>No posts found...</span>
+</ng-template>
+
+<div *ngIf="fetchComplete;else fetchStatusTemplate">
+    <div *ngIf="errorInfo==='';else errorTemplate">
+        <ul *ngIf="posts && posts.length>0;else noRecordTemplate">
+            <li *ngFor="let p of posts">
+                {{p.id}} &nbsp;
+                <u (click)="selectdId(p.id)">
+                    {{p.title}}
+                </u>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<br>
+<br>
+<app-post-detail *ngIf="selectedId>0" [postId]="selectedId"></app-post-detail>

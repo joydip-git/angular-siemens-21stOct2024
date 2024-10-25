@@ -1,0 +1,14 @@
+<h2 class="text-dark">
+    List of Products
+</h2>
+<br>
+<app-product-filter (filtrationValueChanged)="updateFilterTextHandler($event)"></app-product-filter>
+<br>
+<!-- <button type="button" (click)="updateShow()">{{show?'Hide':'Show'}}</button> -->
+<!-- <app-product-list [filterText]="filtrationValue" *ngIf="show">
+
+</app-product-list> -->
+
+<app-product-list [filterText]="filtrationValue">
+
+</app-product-list>

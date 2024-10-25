@@ -1,0 +1,45 @@
+Application Plan:
+------------------------------------------------------------------
+AppComponent => Root Component
+DashBoard => nested in AppComponent
+
+http://localhost:4200/home 						=> HomeComponent
+http://localhost:4200		 						=> http://localhost:4200/home
+
+http://localhost:4200/products 					=> ProductContainerComponent
+http://localhost:4200/products/view/1 		=> ViewProductComponent
+http://localhost:4200/products/update/1 	=> UpdateProductComponent
+http://localhost:4200/products/add			 	=> AddProductComponent
+
+http://localhost:4200/<anything-else>		 	=> ViewNotFoundComponent
+
+Routing:
+--------------------------------------
+client-side routing
+
+package: @angular/router
+module: RouterModule
+
+service:
+-------------------------
+Router 
+
+class: (type)
+--------------------------------
+Route => path (products or home), component (PCC or Home)
+Routes => Route[]
+
+route array has to be registered with router engine (via RouterModule)
+RouterModule.forRoot(array of routes)/forChild()
+
+where to write routing configuration?
+----------------------------------------------
+create routes of fetaure modules in the feature module class itself
+or 
+separate routing module file for every feature module
+
+
+
+
+
+

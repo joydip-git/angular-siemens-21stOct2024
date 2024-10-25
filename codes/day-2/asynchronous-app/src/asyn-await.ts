@@ -7,13 +7,19 @@ const divide = async (a: number, b: number) => {
     else
         return res //resolve(res)
 }
-const add = async (a: number, b: number) => {
-    return a + b
+const add = (a: number, b: number) => {
+    return new Promise(
+        (resolveFn, rejectFn) => {
+            const res = a + b
+            resolveFn(res)
+        }
+    )
 }
 
 async function invoke() {
     try {
         const divRes = await divide(12, 3)
+        console.log(divRes);
         console.log('hello...');
         //...
 
